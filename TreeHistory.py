@@ -49,30 +49,5 @@ for og in range(20):#len(row_id)):
         i += 1
 
 
-
+#write out the final data. should be one halo per line
 f.write(str(treehistorydata) + '\n')
-'''
-for snapshot in range(9,redshift):
-    print snapshot
-    snapid, snapaindex, snapbindex, snapamvir, snapbmvir, snapar200b, snapbr200b,  snapamainleaf,  snapbmainleaf,  snapadepthfirst,  snapbdepthfirst,  snapbposz, snapbvelz, snapbvely = np.loadtxt('UniquePairData/separation_data_increased_timeframe' + str(snapshot) + '.csv', delimiter = ',', unpack = True, skiprows = 1)
-    for i in range(len(pairid)):
-        j = 0
-        quicker = False
-        if i%500 == 0:
-            print float(i)/float(len(pairid))
-        while j < len(snapid) and quicker == False:
-            if (pairamainleaf[i] == snapamainleaf[j] and pairbmainleaf[i] == snapbmainleaf[j]) or (pairbmainleaf[i] == snapamainleaf[j] and pairamainleaf[i] == snapbmainleaf[j]):
-                treehistorydata[i][5][(snapshot-9)*3] = snapbposz[j]
-                treehistorydata[i][5][((snapshot-9)*3)+1] = snapbvelz[j]
-                treehistorydata[i][5][((snapshot-9)*3)+2] = snapbvely[j]
-                quicker = True
-            j += 1
-
-f=open('full_tree_data_'+str(redshift)+'.txt', 'w')
-
-
-for i in range(len(treehistorydata)):
-    datastring = ''
-    for j in range(3*(redshift-9)):
-        datastring = datastring + ', ' + str(treehistorydata[i][5][j])
-'''
