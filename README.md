@@ -8,13 +8,13 @@ The motivation behind this is to help us in thinking about relaxation times for 
 
 Code - SQL queries in the cosmosim.org database
 
-Output - BigMDPL_6E13_#(snapshot)_x.csv and BigMDPL_6E13_#(snapshot)_mainleaf.csv
+Output - BigMDPL_6E13_#(snapshot)\_x.csv and BigMDPL_6E13_#(snapshot)\_mainleaf.csv
 ----------------------
 2. Finding the histories of each tree
 
 Code - TreeHistory.py
 
-Input - BigMDPL_6E13_##_mainleaf.csv
+Input - BigMDPL_6E13_##\_mainleaf.csv
 
 Output - full_tree_data_##.csv
 ----------------------
@@ -22,7 +22,7 @@ Output - full_tree_data_##.csv
 
 Code - CloseHaloFinder.py
 
-Input - CSVFiles_X/BigMDPL_6E13_#(snapshot)_x_.csv
+Input - CSVFiles_X/BigMDPL_6E13_#(snapshot)\_x_.csv
 
 Output - CloseHalos/close_halo_#(snapshot).txt
 ----------------------
