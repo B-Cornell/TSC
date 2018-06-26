@@ -26,4 +26,18 @@ Input - CSVFiles_X/BigMDPL_6E13_#(snapshot)\_x_.csv
 
 Output - CloseHalos/close_halo_#(snapshot).txt
 ----------------------
-4.
+4. Attach all the close halos from the previous code to each individual halo at all the timesteps
+
+Code - singletreehistory.py
+
+Input - CloseHalos/close_halo_#(snapshot).txt
+
+Output - singletreehistory/singletreehistory#(snapshot).txt
+----------------------
+5. Look through the history and find all the actual mergers and record the details of the merger
+
+Code - treemerger.py
+
+Input - singletreehistory/singletreehistory#(snapshot).txt
+
+Output -
