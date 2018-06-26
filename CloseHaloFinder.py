@@ -10,7 +10,7 @@ def sep(x1,y1,z1,x2,y2,z2):
     separation = math.sqrt( ((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2)) + ((z1-z2)*(z1-z2)) )
     return separation
 
-for snapnum in range(10,78):
+for snapnum in range(10,79):
     f = open('close_halo_' + str(snapnum) + '.txt', 'w')
     print snapnum
     row, rockstar, snap, x, y, z, vx, vy, vz, mass, rad, dfId, mlId = np.loadtxt('CSVFiles_X/BigMDPL_6E13_' + str(snapnum) + '_x.csv', unpack = True, delimiter = ',', skiprows = 1)
