@@ -29,14 +29,14 @@ data = pd.read_csv('CSVFilesML/BigMDPL_6E13_' + str(redshift) + '_mainleaf.csv')
 data['history'] = pd.Series([0]*(redshift-11) for row in data.iterrows())
 
 #iterate through all redshifts before the current one
-for i in range(11,redshift):
-    print i
-    pastdata = pd.read_csv('CSVFilesML/BigMDPL_6E13_' + str(i) + '_mainleaf.csv') # this data is sorted by mainleafid
+for snapshot in range(11,redshift):
+    print snapshot
+    pastdata = pd.read_csv('CSVFilesML/BigMDPL_6E13_' + str(snapshot) + '_mainleaf.csv') # this data is sorted by mainleafid
 
     #now use algorithm to find the appropriate halo that matches the og halo's mainleaf at this previous redshift
     for row in data.itertuples():
         mainleafcheck = binarysearch(pastdata.mainLeaf_depthFirstId, row.mainLeaf_depthFirstId)
         if mainleafcheck != 0:
-            row.history[(i-11)] = pastdata.iloc[mainleafcheck]
+            row.history[(snapshot-11)] = pastdata.iloc[mainleafcheck]
 data.to_csv('full_tree_data_'+str(redshift)+'.csv', index = False)
 #'''
