@@ -38,5 +38,5 @@ for i in range(11,redshift):
         mainleafcheck = binarysearch(pastdata.mainLeaf_depthFirstId, row.mainLeaf_depthFirstId)
         if mainleafcheck != 0:
             row.history[(i-11)] = pastdata.iloc[mainleafcheck]
-data.to_csv('full_tree_data_'+str(redshift)+'.csv')
+data.to_csv('full_tree_data_'+str(redshift)+'.csv', index = False)
 #'''
