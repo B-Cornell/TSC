@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import sys
+import pickle
 
 def binarysearch(somelist, target):
     first = 0
@@ -30,16 +31,13 @@ for snapshot in range(10,80):
         for row in ssdata.itertuples():
             mainleafcheck = binarysearch(data.mainLeaf_depthFirstId, row.mlida)
             if mainleafcheck != 0:
-                data.iloc[mainleafcheck].history.append(row)
+                data.iloc[mainleafcheck].history.extend(row)
             mainleafcheck = binarysearch(data.mainLeaf_depthFirstId, row.mlidb)
             if mainleafcheck != 0:
-                data.iloc[mainleafcheck].history.append(row)
+                data.iloc[mainleafcheck].history.extend(row)
 
-    data.to_csv('full_tree_history_%2d.csv' %snapshot, index = False)
-
-
-
-
+    data.to_pickle('FullTreeHistory/full_tree_history_%2d.pkl' %snapshot)
+    #data.to_csv('full_tree_history_%2d.csv' %snapshot, index = False)
 
 
 #'''
