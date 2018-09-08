@@ -31,9 +31,11 @@ for snapshot in range(10,80):
         for row in ssdata.itertuples():
             mainleafcheck = binarysearch(data.mainLeaf_depthFirstId, row.mlida)
             if mainleafcheck != 0:
+                data.iloc[mainleafcheck].history.append(ss)
                 data.iloc[mainleafcheck].history.extend(row)
             mainleafcheck = binarysearch(data.mainLeaf_depthFirstId, row.mlidb)
             if mainleafcheck != 0:
+                data.iloc[mainleafcheck].history.append(ss)
                 data.iloc[mainleafcheck].history.extend(row)
 
     data.to_pickle('FullTreeHistory/full_tree_history_%2d.pkl' %snapshot)
