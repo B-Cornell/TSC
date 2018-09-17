@@ -39,7 +39,7 @@ for snapshot in range(10,80):#10-80 once fully functional
                 newoffvellist = []
                 if mainleaf != row.mainLeaf_depthFirstId:
                     for i in range(len(snaplist)):
-                        if (mlidalist[i] == mainleaf or mlidblist[i] == mainleaf):
+                        if (mlidalist[i] == mainleaf or mlidblist[i] == mainleaf) and (type(onvellist[i])!=str and type(offvellist[i])!=str):
                             newseplist.append(seplist[i])
                             newonvellist.append(float(onvellist[i]))#issue 1
                             newoffvellist.append(float(offvellist[i]))#issue 1
