@@ -13,17 +13,8 @@ Output - BigMDPL_6E13_\#(snapshot)\_x.csv and BigMDPL_6E13_\#(snapshot)\_mainlea
 
 ----------------------
 
-2. Finding the histories of each tree
 
-Code - TreeHistory.py
-
-Input - BigMDPL_6E13_\#\#\_mainleaf.csv
-
-Output - full_tree_data_\#\#.csv
-
-----------------------
-
-3. Finding the separation distances between each halo at the many timesteps
+2. Finding the separation distances between each halo at the many timesteps
 
 Code - CloseHaloFinder.py
 
@@ -33,20 +24,30 @@ Output - CloseHalos/close_halo_\#(snapshot).txt
 
 ----------------------
 
-4. Attach all the close halos from the previous code to each individual halo at all the timesteps
+3. Attach all the close halos from the previous code to each individual halo at all the timesteps
 
 Code - singletreehistory.py
 
 Input - CloseHalos/close_halo_\#(snapshot).txt
 
-Output - singletreehistory/singletreehistory\#(snapshot).txt
+Output - singletreehistory/singletreehistory\#(snapshot).pkl
 
 ----------------------
 
-5. Look through the history and find all the actual mergers and record the details of the merger
+4. Look through the history and find all the actual mergers and record the details of the merger
 
-Code - treemerger.py
+Code - fulldata.py
 
-Input - singletreehistory/singletreehistory\#(snapshot).txt
+Input - singletreehistory/singletreehistory\#(snapshot).pkl
 
-Output -
+Output - FullData/full_data_\#(snapshot).pkl
+
+----------------------
+
+5. Perform the data analysis to explore results
+
+Code - tsc_analysis.py
+
+Input - FullData/full_data_\#(snapshot).pkl
+
+Output - Plots/\*
