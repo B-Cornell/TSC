@@ -1,17 +1,23 @@
 import pandas as pd
 import numpy as np
 import math
+import sys
 
-for snapshot in range(10,39):#10-80 once fully functional
-    twopasses = 0
+
+empty = []
+for snapshot in range(10,80):#10-80 once fully functional
+    twopasses = 0 #count how many passes each halo had, made out of curiousity
     onepasses = 0
     zeropasses = 0
     bigpasses = 0
 
     data= pd.read_pickle('FullTreeHistory/full_tree_history_%2d.pkl' %snapshot)
-    for row in data.itertuples():#each row has one halo and all of it's attributes
-        passes = 0
-        if row.history != []: #empty lists means no merger history
+
+    print snapshot
+
+    for row in data.itertuples():#each row has one halo and all of it's attributes/history
+        passes = 0 #counts how many passes each halo has had
+        if row.history != []: #empty lists means no merger history, so ignore those
             snaplist = row.history[0::11]
             mlidalist = row.history[2::11]
             massalist = row.history[4::11]
@@ -21,11 +27,11 @@ for snapshot in range(10,39):#10-80 once fully functional
             onvellist = row.history[9::11]
             offvellist = row.history[10::11]
             if len(snaplist) != len(mlidalist):
-                print 'fuckin a'
+                print 'Not enough MLAs for the snapshots, aborting.\n'
+                sys.exit(1)
             if len(snaplist) != len(mlidblist):
-                print ' '
-                print row.history
-                print mlidblist
+                print 'Not enough MLBs for the snapshots, aborting'
+                sys.exit(1)
 
             for mainleaf in set(mlidalist + mlidblist):
                 newseplist = []
@@ -35,9 +41,9 @@ for snapshot in range(10,39):#10-80 once fully functional
                     for i in range(len(snaplist)):
                         if (mlidalist[i] == mainleaf or mlidblist[i] == mainleaf):
                             newseplist.append(seplist[i])
-                            newonvellist.append(onvellist[i])
-                            newoffvellist.append(offvellist[i])
-                    #check if it merged in it's past
+                            newonvellist.append(float(onvellist[i]))#issue 1
+                            newoffvellist.append(float(offvellist[i]))#issue 1
+                    #check if it merged in its past
                     for time in range(1,len(newseplist)-1):
                         #counts as a pass through if it is at a local minimum and has less than a 500kpc separation
                         if newseplist[time] < newseplist[time+1] and newseplist[time] < newseplist[time-1] and newseplist[time] < .5:
