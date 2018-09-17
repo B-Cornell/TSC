@@ -39,7 +39,5 @@ for snapshot in range(10,80):
                 data.iloc[mainleafcheck].history.extend(row)
 
     data.to_pickle('FullTreeHistory/full_tree_history_%2d.pkl' %snapshot)
-    #data.to_csv('full_tree_history_%2d.csv' %snapshot, index = False)
-
 
 #'''
