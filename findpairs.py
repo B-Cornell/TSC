@@ -23,7 +23,7 @@ def writeoutput(indx1,indx2):
     else:
         print 'This cannot happen, aborting'
         sys.exit(1)
-    f.write('%5.3f %5.3f %5.3f %5.2f %5.2f %5.2f %d %6.4e %d %d %d %5.2e %d %d' % (x[i]-x[j],y[i]-y[j],z[i]-z[j],vx[i]-vx[j],vy[i]-vy[j],vz[i]-vz[j],rockstar[i],mass[i],df[i],ml[i],rockstar[j],mass[j],df[j],ml[j]))
+    f.write('%5.3f, %5.3f, %5.3f, %5.2f, %5.2f, %5.2f, %d, %6.4e, %d, %d, %d, %5.2e, %d, %d' % (x[i]-x[j],y[i]-y[j],z[i]-z[j],vx[i]-vx[j],vy[i]-vy[j],vz[i]-vz[j],rockstar[i],mass[i],df[i],ml[i],rockstar[j],mass[j],df[j],ml[j]))
     return
 
 for snapshot in range(11,80):
@@ -73,6 +73,8 @@ for snapshot in range(11,80):
 
     # now output those pairs that are not in menage a trois
     f = open('Pairs/snap_%2d.csv' %snapshot, 'w')
+    #write header
+    f.write('x, y, z, vx, vy, vz, rsida, massA, dfida, mlida, rsidb, massb, dfidb, mlidb\n')
     written = {}
     for halo in paired:
         partner = paired[halo]
