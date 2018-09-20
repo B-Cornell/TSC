@@ -23,7 +23,7 @@ def writeoutput(indx1,indx2):
     else:
         print 'This cannot happen, aborting'
         sys.exit(1)
-    f.write('%5.3f, %5.3f, %5.3f, %5.2f, %5.2f, %5.2f, %d, %6.4e, %d, %d, %d, %5.2e, %d, %d\n' % (x[i]-x[j],y[i]-y[j],z[i]-z[j],vx[i]-vx[j],vy[i]-vy[j],vz[i]-vz[j],rockstar[i],mass[i],df[i],ml[i],rockstar[j],mass[j],df[j],ml[j]))
+    f.write('%5.3f,%5.3f,%5.3f,%5.2f,%5.2f,%5.2f,%d,%6.4e,%d,%d,%d,%5.2e,%d,%d\n' % (x[i]-x[j],y[i]-y[j],z[i]-z[j],vx[i]-vx[j],vy[i]-vy[j],vz[i]-vz[j],rockstar[i],mass[i],df[i],ml[i],rockstar[j],mass[j],df[j],ml[j]))
     return
 
 for snapshot in range(11,80):
